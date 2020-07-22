@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FastChannel.Uol.PagSeguro</id>
+    <version>$version$</version>
+    <title>FastChannel.Uol.PagSeguro</title>
+    <authors>UOL, Fast Channel</authors>
+    <owners>fastchannel</owners>
+    <licenseUrl>https://github.com/fastchannel/pagseguro-sdk-dotnet/blob/master/LICENSE-2.0.txt</licenseUrl>
+    <projectUrl>https://github.com/fastchannel/pagseguro-sdk-dotnet</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fastchannel/kaive/master/artwork/Post-Perfil.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fast Channel's fork of the PagSeguro Client API, including a few minor changes and hotfixes.</description>
+    <releaseNotes>For release notes, always check the project site on GitHub.</releaseNotes>
+    <copyright>Copyright 2020, Fast Channel</copyright>
+    <tags>FastChannel, UOL, PagSeguro, Core</tags>
+  </metadata>
+</package>
