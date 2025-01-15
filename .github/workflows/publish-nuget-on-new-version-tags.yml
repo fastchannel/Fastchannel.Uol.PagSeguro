@@ -11,8 +11,8 @@ jobs:
 
     env:
       NUGET_PACKAGES: .nuget/packages
-      SOLUTION_FILE: source/PageSeguro.sln
-      CSPROJECT_FILE: source/Uol.PageSeguro/Fastchannel.Uol.PageSeguro.csproj
+      SOLUTION_FILE: source/PagSeguro.sln
+      CSPROJECT_FILE: source/Uol.PagSeguro/Fastchannel.Uol.PagSeguro.csproj
 
     steps:
       # Checkout the code
