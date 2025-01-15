@@ -70,8 +70,6 @@ jobs:
 
       # Publish the main NuGet package
       - name: Publish to NuGet.org
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         shell: pwsh
         run: |
           $files = Get-ChildItem -Path artifacts -Filter *.nupkg
@@ -81,7 +79,7 @@ jobs:
           }
           foreach ($file in $files) {
             Write-Host "Publishing $file.FullName"
-            nuget push $file.FullName -Source "https://api.nuget.org/v3/index.json" -ApiKey $env:NUGET_API_KEY -SkipDuplicate
+            nuget push $file.FullName -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{ secrets.NUGET_API_KEY }} -SkipDuplicate
           }
 
       # Create a GitHub release
