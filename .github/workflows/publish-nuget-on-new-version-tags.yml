@@ -19,10 +19,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Extract version number from the tag
+      # Extract version from tag using PowerShell
       - name: Extract version from tag
         id: get-version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF -replace 'refs/tags/', ''
+          if (-not $tag.StartsWith('v')) {
+            Write-Error "Version Tags must start with a 'v'. Current Tag: $tag"
+            exit 1
+          }
+          $version = $tag.Substring(1) # Remove the leading 'v'
+          Write-Host "Extracted version: $version"
+          echo "VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
 
       # Setup NuGet CLI
       - name: Setup NuGet CLI
