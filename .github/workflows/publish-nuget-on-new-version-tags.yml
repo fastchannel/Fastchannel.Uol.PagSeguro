@@ -10,9 +10,9 @@ jobs:
     runs-on: windows-latest # Use Windows runner for .NET Framework compatibility
 
     env:
-      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
-      SOLUTION_FILE: ${{ github.workspace }}/source/PageSeguro.sln
-      CSPROJECT_FILE: ${{ github.workspace }}/source/Uol.PageSeguro/Fastchannel.Uol.PageSeguro.csproj
+      NUGET_PACKAGES: .nuget/packages
+      SOLUTION_FILE: source/PageSeguro.sln
+      CSPROJECT_FILE: source/Uol.PageSeguro/Fastchannel.Uol.PageSeguro.csproj
 
     steps:
       # Checkout the code
