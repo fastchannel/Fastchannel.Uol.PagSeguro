@@ -43,7 +43,7 @@ jobs:
 
       # Restore NuGet packages
       - name: Restore NuGet packages
-        run: nuget restore ${{ env.SOLUTION_FILE }}
+        run: nuget restore "${{ env.SOLUTION_FILE }}"
 
       # Update Assembly and Package Version
       - name: Update version info
@@ -55,11 +55,11 @@ jobs:
 
       # Build the project using MSBuild
       - name: Build with MSBuild
-        run: msbuild ${{ env.SOLUTION_FILE }} /p:Configuration=Release /p:Platform=x86 /p:Version=${{ env.VERSION }}
+        run: msbuild "${{ env.SOLUTION_FILE }}" /p:Configuration=Release /p:Platform=x86 /p:Version=${{ env.VERSION }}
 
       # Pack the NuGet package
       - name: Pack NuGet package
-        run: nuget pack ${{ env.CSPROJECT_FILE }} -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -Symbols -OutputDirectory artifacts
+        run: nuget pack "${{ env.CSPROJECT_FILE }}" -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -Symbols -OutputDirectory artifacts
 
       # Upload both NuGet package and symbols as workflow artifacts
       - name: Upload NuGet packages as artifacts
@@ -72,11 +72,7 @@ jobs:
       - name: Publish to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          nuget push artifacts/*.nupkg \
-            -Source https://api.nuget.org/v3/index.json \
-            -ApiKey $NUGET_API_KEY \
-            -SkipDuplicate
+        run: nuget push "artifacts/*.nupkg" -Source "https://api.nuget.org/v3/index.json" -ApiKey $NUGET_API_KEY -SkipDuplicate
 
       # Create a GitHub release
       - name: Create GitHub Release
