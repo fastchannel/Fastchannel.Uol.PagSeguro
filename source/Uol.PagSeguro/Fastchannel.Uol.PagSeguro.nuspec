@@ -5,9 +5,9 @@
     <version>$version$</version>
     <title>Fastchannel.Uol.PagSeguro</title>
     <authors>UOL, Fastchannel</authors>
-    <license type="file">docs\LICENSE-2.0.txt</license>
-    <readme>docs\README.md</readme>
-    <icon>images\UOL.png</icon>
+    <license type="file">docs/LICENSE-2.0.txt</license>
+    <readme>docs/README.md</readme>
+    <icon>images/UOL.png</icon>
     <iconUrl>https://avatars3.githubusercontent.com/u/123060</iconUrl>
     <projectUrl>https://github.com/fastchannel/pagseguro-sdk-dotnet</projectUrl>
     <repository type="git" url="https://github.com/fastchannel/pagseguro-sdk-dotnet.git" branch="master" />
@@ -23,8 +23,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
   </metadata>
   <files>
-	  <file src="..\..\LICENSE-2.0.txt" target="docs\" />
-	  <file src="..\..\README.md" target="docs\" />
-	  <file src="..\..\UOL.png" target="images\" />
+	  <file src="..\..\LICENSE-2.0.txt" target="docs/" />
+	  <file src="..\..\README.md" target="docs/" />
+	  <file src="..\..\UOL.png" target="images/" />
   </files>
 </package>
