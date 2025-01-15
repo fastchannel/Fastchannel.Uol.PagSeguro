@@ -9,6 +9,11 @@ jobs:
   build-and-publish:
     runs-on: windows-latest # Use Windows runner for .NET Framework compatibility
 
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+      SOLUTION_FILE: ${{ github.workspace }}/source/PageSeguro.sln
+      CSPROJECT_FILE: ${{ github.workspace }}/source/Uol.PageSeguro/Fastchannel.Uol.PageSeguro.csproj
+
     steps:
       # Checkout the code
       - name: Checkout code
@@ -25,7 +30,7 @@ jobs:
 
       # Restore NuGet packages
       - name: Restore NuGet packages
-        run: nuget restore source/PagSeguro.sln
+        run: nuget restore ${{ env.SOLUTION_FILE }}
 
       # Update Assembly and Package Version
       - name: Update version info
@@ -37,20 +42,32 @@ jobs:
 
       # Build the project using MSBuild
       - name: Build with MSBuild
-        run: msbuild source/PagSeguro.sln /p:Configuration=Release /p:Version=${{ env.VERSION }}
+        run: msbuild ${{ env.SOLUTION_FILE }} /p:Configuration=Release /p:Platform=x86 /p:Version=${{ env.VERSION }}
 
       # Pack the NuGet package
       - name: Pack NuGet package
-        run: nuget pack source/Uol.PagSeguro/Uol.PagSeguro.csproj -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -OutputDirectory artifacts
+        run: nuget pack ${{ env.CSPROJECT_FILE }} -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -Symbols -OutputDirectory artifacts
 
-      # Publish to NuGet.org
-      - name: Publish to NuGet
+      # Upload both NuGet package and symbols as workflow artifacts
+      - name: Upload NuGet packages as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: nuget-packages
+          path: artifacts/*.nupkg
+
+      # Publish the main NuGet package
+      - name: Publish to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: nuget push artifacts/*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
+        run: |
+          nuget push artifacts/*.nupkg \
+            -Source https://api.nuget.org/v3/index.json \
+            -ApiKey $NUGET_API_KEY \
+            -SkipDuplicate
 
       # Create a GitHub release
       - name: Create GitHub Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,3 +78,14 @@ jobs:
             This release contains the latest build of the NuGet package for the .NET Framework 4.8 class library.
           draft: false
           prerelease: false
+
+      # Attach NuGet package and symbols to GitHub release
+      - name: Attach NuGet package and symbols to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: artifacts/*.nupkg
+          asset_name: ${{ env.VERSION }}-symbols.nupkg
+          asset_content_type: application/zip

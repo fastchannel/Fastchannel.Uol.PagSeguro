@@ -63,9 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Uol.PagSeguro\Uol.PagSeguro.csproj">
+    <ProjectReference Include="..\..\Uol.PagSeguro\Fastchannel.Uol.PagSeguro.csproj">
       <Project>{BABC5658-6AFD-4F8E-81F1-434553663D99}</Project>
-      <Name>Uol.PagSeguro</Name>
+      <Name>Fastchannel.Uol.PagSeguro</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Uol.PagSeguro\Uol.PagSeguro.csproj">
+    <ProjectReference Include="..\..\..\Uol.PagSeguro\Fastchannel.Uol.PagSeguro.csproj">
       <Project>{babc5658-6afd-4f8e-81f1-434553663d99}</Project>
-      <Name>Uol.PagSeguro</Name>
+      <Name>Fastchannel.Uol.PagSeguro</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

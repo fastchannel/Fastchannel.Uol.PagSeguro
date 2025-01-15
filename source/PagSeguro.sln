@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fastchannel.Uol.PagSeguro", "Uol.PagSeguro\Fastchannel.Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocExamples", "Examples\DocExamples\DocExamples.csproj", "{60D682C1-2AC5-4162-B968-0835A58FED6C}"
 EndProject
@@ -71,7 +71,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\LICENSE-2.0.txt = ..\LICENSE-2.0.txt
+		..\.github\workflows\publish-nuget-on-new-version-tags.yml = ..\.github\workflows\publish-nuget-on-new-version-tags.yml
 		..\README.md = ..\README.md
+		..\UOL.png = ..\UOL.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{96FD70C1-652F-46BC-BE8D-210E5755D49D}"
