@@ -72,8 +72,17 @@ jobs:
       - name: Publish to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        shell: pwsh
         run: |
-          for %f in (artifacts\*.nupkg) do nuget push "%f" -Source "https://api.nuget.org/v3/index.json" -ApiKey $NUGET_API_KEY -SkipDuplicate
+          $files = Get-ChildItem -Path artifacts -Filter *.nupkg
+          if ($files.Count -eq 0) {
+            Write-Error "No .nupkg files found in the artifacts directory."
+            exit 1
+          }
+          foreach ($file in $files) {
+            Write-Host "Publishing $file.FullName"
+            nuget push $file.FullName -Source "https://api.nuget.org/v3/index.json" -ApiKey $env:NUGET_API_KEY -SkipDuplicate
+          }
 
       # Create a GitHub release
       - name: Create GitHub Release
