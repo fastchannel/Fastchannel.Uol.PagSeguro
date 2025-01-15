@@ -72,7 +72,8 @@ jobs:
       - name: Publish to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: nuget push "artifacts/*.nupkg" -Source "https://api.nuget.org/v3/index.json" -ApiKey $NUGET_API_KEY -SkipDuplicate
+        run: |
+          for %f in (artifacts\*.nupkg) do nuget push "%f" -Source "https://api.nuget.org/v3/index.json" -ApiKey $NUGET_API_KEY -SkipDuplicate
 
       # Create a GitHub release
       - name: Create GitHub Release
