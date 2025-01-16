@@ -70,6 +70,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{1D9C6F31-85DE-4D21-B275-D6CD38C3410C}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		Directory.Build.targets = Directory.Build.targets
 		..\LICENSE-2.0.txt = ..\LICENSE-2.0.txt
 		..\.github\workflows\publish-nuget-on-new-version-tags.yml = ..\.github\workflows\publish-nuget-on-new-version-tags.yml
 		..\README.md = ..\README.md

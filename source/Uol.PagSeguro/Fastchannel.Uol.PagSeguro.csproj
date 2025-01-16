@@ -219,7 +219,6 @@
     <Compile Include="XmlParse\XMLParserUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Directory.Build.targets" />
     <None Include="Fastchannel.Uol.PagSeguro.FxCop" />
     <None Include="Fastchannel.Uol.PagSeguro.nuspec" />
     <None Include="packages.lock.json" />
