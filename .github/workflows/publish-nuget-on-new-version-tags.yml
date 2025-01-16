@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*' # Trigger only when a tag starting with 'v' is pushed (e.g., v1.0.0)
 
+permissions:
+  contents: write
+
 jobs:
   build-and-publish:
     runs-on: windows-latest # Use Windows runner for .NET Framework compatibility
@@ -35,11 +38,11 @@ jobs:
 
       # Setup NuGet CLI
       - name: Setup NuGet CLI
-        uses: nuget/setup-nuget@v3
+        uses: nuget/setup-nuget@v2
 
       # Setup MSBuild
       - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1
+        uses: microsoft/setup-msbuild@v2
 
       # Restore NuGet packages
       - name: Restore NuGet packages
@@ -63,7 +66,7 @@ jobs:
 
       # Configure GitHub Packages repository
       - name: Setup GitHub Packages repository
-        run: nuget add source --username fastchannel --password ${{ secrets.FASTCHANNEL_GITHUB_PAT }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/fastchannel/index.json"
+        run: nuget add source --username fastchannel --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/fastchannel/index.json"
 
       # Publish packages to GitHub Packages
       - name: Publish packages to GitHub Packages
@@ -76,7 +79,7 @@ jobs:
           }
           foreach ($file in $files) {
             Write-Host "Publishing $file.FullName"
-            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
+            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.GITHUB_TOKEN }} -SkipDuplicate
           }
 
       # Upload both NuGet package and symbols as workflow artifacts
@@ -91,24 +94,15 @@ jobs:
       # Create a GitHub release
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
+          name: PagSeguro SDK ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: artifacts/*.nupkg
           body: |
-            This release contains the latest build of the NuGet package for the .NET Framework 4.8 class library.
+            This release contains the latest build of the PagSeguro SDK for the .NET Framework 4.8 class library.
           draft: false
           prerelease: false
-
-      # Attach NuGet package and symbols to GitHub release
-      - name: Attach NuGet package and symbols to release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/*.nupkg
-          asset_name: ${{ env.VERSION }}-symbols.nupkg
-          asset_content_type: application/zip
+          make_latest: true
+          generate_release_notes: true
