@@ -66,7 +66,7 @@ jobs:
 
       # Configure GitHub Packages repository
       - name: Setup GitHub Packages repository
-        run: nuget add source --username fastchannel --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/fastchannel/index.json"
+        run: nuget sources Add -Name github -Source "https://nuget.pkg.github.com/fastchannel/index.json" -UserName fastchannel -Password ${{ secrets.GITHUB_TOKEN }} -StorePasswordInClearText
 
       # Publish packages to GitHub Packages
       - name: Publish packages to GitHub Packages
