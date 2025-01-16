@@ -18,6 +18,8 @@ jobs:
       CSPROJECT_FILE: ${{ github.workspace }}/source/Uol.PagSeguro/Fastchannel.Uol.PagSeguro.csproj
 
     steps:
+      - run: git config advice.detachedHead false
+
       # Checkout the code
       - name: Checkout code
         uses: actions/checkout@v4
@@ -66,7 +68,7 @@ jobs:
 
       # Configure GitHub Packages repository
       - name: Setup GitHub Packages repository
-        run: nuget sources Add -Name github -Source "https://nuget.pkg.github.com/fastchannel/index.json" -UserName fastchannel -Password ${{ secrets.GITHUB_TOKEN }} -StorePasswordInClearText
+        run: nuget sources Add -Name github -Source "https://nuget.pkg.github.com/fastchannel/index.json" -UserName fastchannel -Password ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -StorePasswordInClearText
 
       # Publish packages to GitHub Packages
       - name: Publish packages to GitHub Packages
@@ -79,7 +81,7 @@ jobs:
           }
           foreach ($file in $files) {
             Write-Host "Publishing $file.FullName"
-            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.GITHUB_TOKEN }} -SkipDuplicate
+            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
           }
 
       # Upload both NuGet package and symbols as workflow artifacts
