@@ -46,8 +46,19 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      # Setup NuGet PKG Cache
+      - name: Setup NuGet Packages Cache
+        uses: actions/cache@v4
+        id: nuget-cache
+        with:
+          path: ${{ env.NUGET_PACKAGES }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**\packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       # Restore NuGet packages
       - name: Restore NuGet packages
+        if: steps.nuget-cache.outputs.cache-hit != 'true'
         run: nuget restore "${{ env.SOLUTION_FILE }}"
 
       # Update Assembly and Package Version
@@ -60,11 +71,11 @@ jobs:
 
       # Build the project using MSBuild
       - name: Build with MSBuild
-        run: msbuild "${{ env.SOLUTION_FILE }}" /p:Configuration=Release /p:Platform=x86 /p:Version=${{ env.VERSION }}
+        run: msbuild "${{ env.SOLUTION_FILE }}" /p:Configuration=Release /p:Platform=x86 /p:Version=${{ env.VERSION }} /p:ContinuousIntegrationBuild=true /p:RestoreLockedMode=true
 
       # Pack the NuGet package
       - name: Pack NuGet package
-        run: nuget pack "${{ env.CSPROJECT_FILE }}" -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -Symbols -OutputDirectory artifacts
+        run: nuget pack "${{ env.CSPROJECT_FILE }}" -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -OutputDirectory artifacts
 
       # Configure GitHub Packages repository
       - name: Setup GitHub Packages repository
@@ -72,20 +83,10 @@ jobs:
 
       # Publish packages to GitHub Packages
       - name: Publish packages to GitHub Packages
-        shell: pwsh
-        run: |
-          $files = Get-ChildItem -Path artifacts -Filter *.nupkg
-          if ($files.Count -eq 0) {
-            Write-Error "No .nupkg files found in the artifacts directory."
-            exit 1
-          }
-          foreach ($file in $files) {
-            Write-Host "Publishing $file.FullName"
-            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
-          }
+        run: nuget push "${{ github.workspace }}/artifacts/*.nupkg" -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
 
       # Upload both NuGet package and symbols as workflow artifacts
-      - name: Upload NuGet packages as Artifacts
+      - name: Upload NuGet Packages as Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: NuGetPackages

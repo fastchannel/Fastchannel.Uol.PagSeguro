@@ -30,6 +30,7 @@
     <TargetFrameworkProfile />
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -54,11 +55,13 @@
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>embedded</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+    <IncludeSymbols>true</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -215,8 +218,10 @@
     <Compile Include="XmlParse\XMLParserUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Directory.Build.targets" />
     <None Include="Fastchannel.Uol.PagSeguro.FxCop" />
     <None Include="Fastchannel.Uol.PagSeguro.nuspec" />
+    <None Include="packages.lock.json" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
