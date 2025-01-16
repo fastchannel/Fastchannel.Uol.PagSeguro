@@ -35,7 +35,7 @@ jobs:
 
       # Setup NuGet CLI
       - name: Setup NuGet CLI
-        uses: nuget/setup-nuget@v2
+        uses: nuget/setup-nuget@v3
 
       # Setup MSBuild
       - name: Setup MSBuild
@@ -61,15 +61,12 @@ jobs:
       - name: Pack NuGet package
         run: nuget pack "${{ env.CSPROJECT_FILE }}" -Prop Configuration=Release -Prop Version=${{ env.VERSION }} -Symbols -OutputDirectory artifacts
 
-      # Upload both NuGet package and symbols as workflow artifacts
-      - name: Upload NuGet packages as artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: nuget-packages
-          path: artifacts/*.nupkg
+      # Configure GitHub Packages repository
+      - name: Setup GitHub Packages repository
+        run: nuget add source --username fastchannel --password ${{ secrets.FASTCHANNEL_GITHUB_PAT }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/fastchannel/index.json"
 
-      # Publish the main NuGet package
-      - name: Publish to NuGet.org
+      # Publish packages to GitHub Packages
+      - name: Publish packages to GitHub Packages
         shell: pwsh
         run: |
           $files = Get-ChildItem -Path artifacts -Filter *.nupkg
@@ -79,8 +76,17 @@ jobs:
           }
           foreach ($file in $files) {
             Write-Host "Publishing $file.FullName"
-            nuget push $file.FullName -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{ secrets.NUGET_API_KEY }} -SkipDuplicate
+            nuget push $file.FullName -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
           }
+
+      # Upload both NuGet package and symbols as workflow artifacts
+      - name: Upload NuGet packages as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: NuGetPackages
+          path: artifacts/*.nupkg
+          if-no-files-found: error
+          compression-level: 0
 
       # Create a GitHub release
       - name: Create GitHub Release
