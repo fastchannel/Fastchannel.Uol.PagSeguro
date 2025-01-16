@@ -83,7 +83,8 @@ jobs:
 
       # Publish packages to GitHub Packages
       - name: Publish packages to GitHub Packages
-        run: nuget push "${{ github.workspace }}/artifacts/*.nupkg" -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
+        working-directory: ./artifacts
+        run: nuget push *.nupkg -Source "github" -ApiKey ${{ secrets.FASTCHANNEL_GITHUB_PAT }} -SkipDuplicate
 
       # Upload both NuGet package and symbols as workflow artifacts
       - name: Upload NuGet Packages as Artifacts
