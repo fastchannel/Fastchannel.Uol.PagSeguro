@@ -18,7 +18,7 @@ jobs:
       CSPROJECT_FILE: ${{ github.workspace }}/source/Uol.PagSeguro/Fastchannel.Uol.PagSeguro.csproj
 
     steps:
-      - run: git config advice.detachedHead false
+      - run: git config --global advice.detachedHead false
 
       # Checkout the code
       - name: Checkout code
