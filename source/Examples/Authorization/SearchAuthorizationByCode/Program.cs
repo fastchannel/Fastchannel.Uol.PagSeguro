@@ -41,19 +41,16 @@ namespace FindAuthorizationByCode
 
 
             } 
-            catch (WebException exception) 
+            catch (WebException) 
             {
 
             }
             catch (PagSeguroServiceException exception)
             {
-
-
                 foreach (ServiceError element in exception.Errors)
                 {
 
                 }
-      
             }
         }
     }

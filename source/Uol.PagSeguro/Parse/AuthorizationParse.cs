@@ -32,19 +32,19 @@ namespace Uol.PagSeguro.Parse
             IDictionary<string, string> data = new Dictionary<string, string>();
 
             // Reference
-            if (authorizationRequest.Reference)
+            if (authorizationRequest.Reference != null)
                 data["reference"] = authorizationRequest.Reference;
 
             // RedirectURL
-            if (authorizationRequest.RedirectURL)
+            if (authorizationRequest.RedirectURL != null)
                 data["redirectURL"] = authorizationRequest.RedirectURL;
 
             // NotificationURL
-            if (authorizationRequest.NotificationURL)
+            if (authorizationRequest.NotificationURL != null)
                 data["notificationURL"] = authorizationRequest.NotificationURL;
 
             // Permissions
-            if (authorizationRequest.Permissions)
+            if (authorizationRequest.Permissions != null)
                 data["permissions"] = string.Join(",", authorizationRequest.Permissions.ToArray());
 
             return data;

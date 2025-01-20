@@ -187,9 +187,9 @@ namespace Uol.PagSeguro.Domain
         {
             get
             {
-                if (this.items == null)
+                if (items == null)
                 {
-                    this.items = new List<Item>();
+                    items = new List<Item>();
                 }
                 return items;
             }
@@ -210,17 +210,22 @@ namespace Uol.PagSeguro.Domain
         /// <returns></returns>
         public override string ToString()
         {
-            StringBuilder builder = new StringBuilder();
-            builder.Append(this.GetType().Name);
+            var builder = new StringBuilder();
+            builder.Append(GetType().Name);
             builder.Append('(');
-            builder.Append("Code=").Append(this.Code).Append(", ");
-            builder.Append("Date=").Append(this.Date).Append(", ");
-            if (this.Reference)
-                builder.Append("Reference=").Append(this.Reference.ToString()).Append(", ");
-            builder.Append("TransactionStatus=").Append(this.TransactionStatus).Append(", ");
-            string email = this.Sender == null ? null : this.Sender.Email;
-            builder.Append("Sender.Email=").Append(email).Append(", ");
-            builder.Append("Items.Count=").Append(this.Items.Count);
+            builder.Append("Code=").Append(Code).Append(", ");
+            builder.Append("Date=").Append(Date).Append(", ");
+
+            if (Reference != null)
+                builder.Append("Reference=").Append(Reference.ToString()).Append(", ");
+
+            builder.Append("TransactionStatus=").Append(TransactionStatus).Append(", ");
+
+            var email = Sender?.Email;
+            if (email != null)
+                builder.Append("Sender.Email=").Append(email).Append(", ");
+
+            builder.Append("Items.Count=").Append(Items.Count);
             builder.Append(')');
             return builder.ToString();
         }

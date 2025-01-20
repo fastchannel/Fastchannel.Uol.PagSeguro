@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitation
 
+using System;
 using System.Xml;
 using Uol.PagSeguro.Domain.Direct;
 
@@ -43,7 +44,7 @@ namespace Uol.PagSeguro.XmlParse
                         session.id = reader.Value;
                         break;
                     default:
-                        throw new InvalidOperationException("Unexpected value NodeType = " + reader.NodeType);    
+                        throw new InvalidOperationException("Unexpected value for NodeType = " + reader.NodeType);    
                 }
             }
         }

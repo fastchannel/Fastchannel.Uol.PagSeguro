@@ -36,11 +36,5 @@ namespace Uol.PagSeguro.Domain
         /// based on the shipping information provided with the payment request.
         /// </summary>
         public decimal? Cost { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the Shipping class
-        /// </summary>
-        // ReSharper disable once EmptyConstructor
-       
     }
 }

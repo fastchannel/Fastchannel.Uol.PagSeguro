@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Uol.PagSeguro.Domain.Direct
 {
@@ -12,38 +10,22 @@ namespace Uol.PagSeguro.Domain.Direct
         /// <summary>
         /// Holder name
         /// </summary>
-        public String Name
-        {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// Holder phone
         /// </summary>
-        public Phone Phone
-        {
-            get;
-            set;
-        }
+        public Phone Phone { get; set; }
 
         /// <summary>
         /// Holder document
         /// </summary>
-        public HolderDocument Document
-        {
-            get;
-            set;
-        }
+        public HolderDocument Document { get; set; }
 
         /// <summary>
         /// Holder birthdate
         /// </summary>
-        public String Birthdate
-        {
-            get;
-            set;
-        }
+        public string Birthdate { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the Holder class
@@ -52,24 +34,19 @@ namespace Uol.PagSeguro.Domain.Direct
         /// <param name="phone"></param>
         /// <param name="document"></param>
         /// <param name="birthDate"></param>
-        public Holder(String name = null, Phone phone = null, HolderDocument document = null, String birthDate = null)
+        public Holder(string name = null, Phone phone = null, HolderDocument document = null, string birthDate = null)
         {
-            if (!String.IsNullOrEmpty(name))
-            {
-                this.Name = name;
-            }
-            if (phone)
-            {
-                this.Phone = phone;
-            }
-            if (document)
-            {
-                this.Document = document;
-            }
-            if (!String.IsNullOrEmpty(birthDate))
-            {
-                this.Birthdate = birthDate;
-            }
+            if (!string.IsNullOrEmpty(name))
+                Name = name;
+
+            if (phone != null)
+                Phone = phone;
+
+            if (document != null)
+                Document = document;
+
+            if (!string.IsNullOrEmpty(birthDate))
+                Birthdate = birthDate;
         }
 
         /// <summary>
@@ -79,12 +56,12 @@ namespace Uol.PagSeguro.Domain.Direct
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(this.GetType().Name);
+            builder.Append(GetType().Name);
             builder.Append('(');
-            builder.Append("Name=").Append(this.Name).Append(", ");
-            builder.Append("Phone=").Append(this.Phone.ToString()).Append(", ");
-            builder.Append("Document=").Append(this.Document.ToString());
-            builder.Append("Birthdate=").Append(this.Birthdate);
+            builder.Append("Name=").Append(Name).Append(", ");
+            builder.Append("Phone=").Append(Phone.ToString()).Append(", ");
+            builder.Append("Document=").Append(Document.ToString());
+            builder.Append("Birthdate=").Append(Birthdate);
             builder.Append(')');
             return builder.ToString();
         }

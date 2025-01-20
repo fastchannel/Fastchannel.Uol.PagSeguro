@@ -13,12 +13,10 @@
 //   limitations under the License.
 
 using System;
-using System.Net;
 using Uol.PagSeguro.Domain;
 using Uol.PagSeguro.Exception;
 using Uol.PagSeguro.Resources;
 using Uol.PagSeguro.Service;
-using System.Collections.Generic;
 
 namespace SearchTransactionAbandoned
 {
@@ -58,26 +56,28 @@ namespace SearchTransactionAbandoned
 
                 if (result.Transactions.Count <= 0)
                 {
-                    e("Nenhuma transação abandonada");
+                    Console.WriteLine("Nenhuma transação abandonada");
                 }
 
                 foreach (TransactionSummary transaction in result.Transactions)
                 {
-
+                    Console.WriteLine("Começando listagem de transações abandonadas - \n");
+                    Console.WriteLine(transaction.ToString());
+                    Console.WriteLine(" - Terminando listagem de transações abandonadas");
                 }
 
-        
+                Console.ReadKey();
 
             }
             catch (PagSeguroServiceException exception)
             {
-              
+                Console.WriteLine(exception.Message + "\n");
 
                 foreach (ServiceError element in exception.Errors)
                 {
-                  
+                    Console.WriteLine(element + "\n");
                 }
-     
+                Console.ReadKey();
             }
         }
     }

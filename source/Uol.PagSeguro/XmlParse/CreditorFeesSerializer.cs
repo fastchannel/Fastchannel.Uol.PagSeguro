@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitation
 
+using System;
 using System.Xml;
 using Uol.PagSeguro.Domain;
 
@@ -56,7 +57,7 @@ namespace Uol.PagSeguro.XmlParse
                             break;
                         default:
                             XMLParserUtils.SkipElement(reader);
-                            throw new InvalidOperationException("Unexpected value foo = " + reader.Name);
+                            throw new InvalidOperationException("Unexpected value at " + reader.Name);
                     }
                 }
                 else

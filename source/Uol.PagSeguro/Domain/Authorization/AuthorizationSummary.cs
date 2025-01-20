@@ -15,7 +15,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Uol.PagSeguro.Domain.Authorization;
 
 namespace Uol.PagSeguro.Domain.Authorization
 {
@@ -74,7 +73,7 @@ namespace Uol.PagSeguro.Domain.Authorization
         {
             get
             {
-                return this.permissions;
+                return permissions;
             }
         }
 
@@ -85,21 +84,18 @@ namespace Uol.PagSeguro.Domain.Authorization
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(this.GetType().Name);
+            builder.Append(GetType().Name);
             builder.Append('(');
-            builder.Append("Code=").Append(this.Code).Append(", ");
-            builder.Append("CreationDate=").Append(this.CreationDate).Append(", ");
-            builder.Append("Reference=").Append(this.Reference).Append(", ");
-            if (this.Account) {
-                builder.Append("PublicKey=").Append(this.Account.PublicKey).Append(", ");
-            } else  {
-                builder.Append("PublicKey=").Append("").Append(", ");
-            }
+            builder.Append("Code=").Append(Code).Append(", ");
+            builder.Append("CreationDate=").Append(CreationDate).Append(", ");
+            builder.Append("Reference=").Append(Reference).Append(", ");
+            builder.Append("PublicKey=").Append(Account?.PublicKey ?? "").Append(", ");
             builder.Append("Permissions for this authorization=").Append("(");
+
             int counter = 1;
-            foreach (AuthorizationPermissions permission in this.Permissions)
+            foreach (AuthorizationPermissions permission in Permissions)
             {
-                if (this.Permissions.Count == counter)
+                if (Permissions.Count == counter)
                 {
                     builder.Append(permission.Code);
                 }
@@ -109,6 +105,7 @@ namespace Uol.PagSeguro.Domain.Authorization
                     counter++;
                 }
             }
+
             builder.Append(')');
             return builder.ToString();
         }

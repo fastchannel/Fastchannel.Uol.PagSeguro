@@ -23,191 +23,138 @@ namespace Uol.PagSeguro.Domain
         /// <summary>
         /// Bradesco debit
         /// </summary>
-        public static  string DebitoBradesco
-    {
-      get { return "DEBITO_BRADESCO";}
-    }
+        public const string DebitoBradesco = "DEBITO_BRADESCO";
+
         /// <summary>
         /// Itaú debit
         /// </summary>
-        public static  string DebitoItau
-    {
-      get { return "DEBITO_ITAU"; }
-    }
+        public const string DebitoItau = "DEBITO_ITAU";
+
         /// <summary>
         /// Unibanco debit
         /// </summary>
-        public static string DebitoUnibanco 
-    {
-      get { return "DEBITO_UNIBANCO"; }
-    }
+        public const string DebitoUnibanco = "DEBITO_UNIBANCO";
+
         /// <summary>
         /// Banco do Brasil debit
         /// </summary>
-        public static string DebitoBancoDoBrasil
-    {
-      get { return "DEBITO_BANCO_BRASIL"; }
-    }
+        public const string DebitoBancoDoBrasil = "DEBITO_BANCO_BRASIL";
+
         /// <summary>
         /// Banrisul debit
         /// </summary>
-        public static string DebitoBanrisul
-    {
-      get { return "DEBITO_BANRISUL"; }
-    }
+        public const string DebitoBanrisul = "DEBITO_BANRISUL";
+
         /// <summary>
         /// HSBC bank debit
         /// </summary>
-        public static string DebitoHSBC
-    {
-      get { return "DEBITO_HSBC"; }
-    }
+        public const string DebitoHSBC = "DEBITO_HSBC";
+
         /// <summary>
         /// Boleto
         /// </summary>
-        public static string Boleto
-     {
-      get { return "BOLETO"; }
-    }       
+        public const string Boleto = "BOLETO";
+
         /// <summary>
         /// Visa brand
         /// </summary>
-        public static string Visa
-    {
-      get { return "VISA"; }
-    }        
+        public const string Visa = "VISA";
+
         /// <summary>
         /// Mastercard brand
         /// </summary>
-        public static string Mastercard
-     {
-      get { return "MASTERCARD"; }
-    }       
+        public const string Mastercard = "MASTERCARD";
+
+        // TO-DO: convert all the static properties below this line into constants
+
         /// <summary>
         /// Amex brand
         /// </summary>
-        public static string Amex
-     {
-      get { return "AMEX"; }
-    }       
+        public const string Amex = "AMEX";
+
         /// <summary>
         /// Diners brand
         /// </summary>
-        public const string Diners
-    {
-      get { return "DINERS"; }
-    }        
+        public const string Diners = "DINERS";
+
         /// <summary>
         /// Hipercard brand
         /// </summary>
-        public static string Hipercard
-    {
-      get { return "HIPERCARD"; }
-    }        
+        public const string Hipercard = "HIPERCARD";
+
         /// <summary>
         /// Aura brand
         /// </summary>
-        public static string Aura
-    {
-      get { return "AURA"; }
-    }
+        public const string Aura = "AURA";
+
         /// <summary>
         /// Elo brand
         /// </summary>
-        public const string Elo
-    {
-      get { return "ELO"; }
-    }
+        public const string Elo = "ELO";
+
         /// <summary>
-        /// Aura brand
+        /// Plenocard brand
         /// </summary>
-        public static string Plenocard
-    {
-      get { return "PLENOCARD"; }
-    }
+        public const string Plenocard = "PLENOCARD";
+
         /// <summary>
         /// Personalcard brand
         /// </summary>
-        public static string Personalcard
-    {
-      get { return "PERSONALCARD"; }
-    }
+        public const string Personalcard = "PERSONALCARD";
+
         /// <summary>
         /// JCB brand
         /// </summary>
-        public static string JCB
-    {
-      get { return "JCB"; }
-    }
+        public const string JCB = "JCB";
+
         /// <summary>
         /// Discover brand
         /// </summary>
-        public static string Discover
-    {
-      get { return "DISCOVER"; }
-    }
+        public const string Discover = "DISCOVER";
+
         /// <summary>
         /// Brasilcard brand
         /// </summary>
-        public static string Brasilcard
-    {
-      get { return "BRASILCARD"; }
-    }
+        public const string Brasilcard = "BRASILCARD";
+
         /// <summary>
         /// FortBrasil brand
         /// </summary>
-        public static string FortBrasil
-    {
-      get { return "FORTBRASIL"; }
-    }
+        public const string FortBrasil = "FORTBRASIL";
+
         /// <summary>
         /// Cardban brand
         /// </summary>
-        public static string Cardban
-    {
-      get { return "CARDBAN"; }
-    }
+        public const string Cardban = "CARDBAN";
+
         /// <summary>
         /// Valecard brand
         /// </summary>
-        public static string Valecard
-    {
-      get { return "VALECARD"; }
-    }
+        public const string Valecard = "VALECARD";
+
         /// <summary>
         /// Cabal brand
         /// </summary>
-        public static string Cabal
-    {
-      get { return "CABAL"; }
-    }
+        public const string Cabal = "CABAL";
+
         /// <summary>
         /// Mais brand
         /// </summary>
-        public static string Mais
-    {
-      get { return "MAIS"; }
-    }
+        public const string Mais = "MAIS";
+
         /// <summary>
         /// AVista brand
         /// </summary>
-        public static string AVista
-    {
-      get { return "AVISTA"; }
-    }
+        public const string AVista = "AVISTA";
+
         /// <summary>
         /// Grandcard brand
         /// </summary>
-        public static string Grandcard
-    {
-      get { return "GRANDCARD"; }
-    }
+        public const string Grandcard = "GRANDCARD";
+
         /// <summary>
         /// Sorocred brand
         /// </summary>
-        public static string Sorocred
-    {
-      get { return "SOROCRED"; }
-    }
+        public const string Sorocred = "SOROCRED";
     }
 }

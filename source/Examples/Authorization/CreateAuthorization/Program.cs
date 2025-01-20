@@ -38,11 +38,11 @@ namespace CreateAuthorization
 
             authorization.NotificationURL = "http://www.lojamodelo.com.br/notification";
 
-            authorization.addPermission(PermissionType.CREATE_CHECKOUTS);
-            authorization.addPermission(PermissionType.DIRECT_PAYMENT);
-            authorization.addPermission(PermissionType.MANAGE_PAYMENT_PRE_APPROVALS);
-            authorization.addPermission(PermissionType.RECEIVE_TRANSACTION_NOTIFICATIONS);
-            authorization.addPermission(PermissionType.SEARCH_TRANSACTIONS);
+            authorization.AddPermission(PermissionType.CREATE_CHECKOUTS);
+            authorization.AddPermission(PermissionType.DIRECT_PAYMENT);
+            authorization.AddPermission(PermissionType.MANAGE_PAYMENT_PRE_APPROVALS);
+            authorization.AddPermission(PermissionType.RECEIVE_TRANSACTION_NOTIFICATIONS);
+            authorization.AddPermission(PermissionType.SEARCH_TRANSACTIONS);
 
             try
             {
@@ -54,7 +54,7 @@ namespace CreateAuthorization
            
               
             }
-            catch (WebException exception)
+            catch (WebException)
             {
              
          

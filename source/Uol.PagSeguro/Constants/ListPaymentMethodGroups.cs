@@ -23,37 +23,26 @@ namespace Uol.PagSeguro.Domain
         /// <summary>
         /// PagSeguro Balance
         /// </summary>
-        public static string Balance
-    {
-      get { return "BALANCE"; }
-    }
+        public const string Balance = "BALANCE";
+
         /// <summary>
         /// Boleto
         /// </summary>
-        public static string Boleto
-    {
-      get { return "BOLETO"; }
-    }
+        public const string Boleto = "BOLETO";
+
         /// <summary>
         /// Credit card
         /// </summary>
-        public static string CreditCard
-    {
-      get { return "CREDIT_CARD"; }
-    }
+        public const string CreditCard = "CREDIT_CARD";
+
         /// <summary>
         /// Deposit
         /// </summary>
-        public static string Deposit
-    {
-      get { return "DEPOSIT"; }
-    }
+        public const string Deposit = "DEPOSIT";
+
         /// <summary>
         /// Online debit
         /// </summary>
-        public static string ETF
-    {
-      get { return "EFT"; }
-    }    
+        public const string ETF = "EFT";
     }
 }

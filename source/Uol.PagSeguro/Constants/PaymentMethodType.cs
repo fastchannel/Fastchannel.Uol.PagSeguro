@@ -26,44 +26,32 @@ namespace Uol.PagSeguro.Domain
         /// <summary>
         /// Credit card
         /// </summary>
-        public static int CreditCard
-     {
-      get { return 1; }
-     }
+        public const int CreditCard = 1;
+
         /// <summary>
         /// Boleto is a form of invoicing in Brazil
         /// </summary>
-        public static int Boleto
-     {
-      get { return 2; }
-     }
+        public const int Boleto = 2;
+
         /// <summary>
         /// Online transfer
         /// </summary>
-        public static int OnlineTransfer
-     {
-      get { return 3; }
-     }
+        public const int OnlineTransfer = 3;
+
         /// <summary>
         /// PagSeguro account balance
         /// </summary>
-        public static int Balance
-     {
-      get { return 4; }
-     }
+        public const int Balance = 4;
+
         /// <summary>
         /// OiPaggo
         /// </summary>
-        public static int OiPaggo
-     {
-      get { return 5; }
-     }
+        public const int OiPaggo = 5;
+
         /// <summary>
         /// Direct Deposit
         /// </summary>
-        public static int DirectDeposit
-             {
-      get { return 7; }
-     }
+        public const int DirectDeposit = 7;
     }
 }
+

@@ -86,7 +86,7 @@ namespace Uol.PagSeguro.Resources
                 xml.Save(xmlConfigFile);
                 PagSeguroConfigSerializer.ResetXmlConfig();
             }
-            catch (FormatException exception)
+            catch (FormatException)
             {
     
             }
