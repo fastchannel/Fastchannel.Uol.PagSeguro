@@ -27,156 +27,155 @@ namespace Uol.PagSeguro.Domain
         /// <summary>
         /// VISA
         /// </summary>
-        public const int Visa = 101;
+        private  readonly  int Visa = 101;
 
         /// <summary>
         /// Mastercard
         /// </summary>
-        public const int Mastercard = 102;
+        private  readonly  int Mastercard = 102;
 
         /// <summary>
         /// American Express
         /// </summary>
-        public const int Amex = 103;
+        private  readonly  int Amex = 103;
 
         /// <summary>
         /// Diners
         /// </summary>
-        public const int Diners = 104;
+        private  readonly  int Diners = 104;
 
         /// <summary>
         /// Hipercard
         /// </summary>
-        public const int Hipercard = 105;
+        private  readonly  int Hipercard = 105;
 
         /// <summary>
         /// Aura
         /// </summary>
-        public const int Aura = 106;
+        private  readonly  int Aura = 106;
 
         /// <summary>
         /// Elo
         /// </summary>
-        public const int Elo = 107;
+        private  readonly  int Elo = 107;
 
         /// <summary>
         /// PLENOCard
         /// </summary>
-        public const int PlenoCard = 108;
+        private  readonly  int PlenoCard = 108;
 
         /// <summary>
         /// PersonalCard
         /// </summary>
-        public const int PersonalCard = 109;
+        public readonly  int PersonalCard = 109;
 
         /// <summary>
         /// JCB
         /// </summary>
-        public const int Jcb = 110;
+        private  readonly  int Jcb = 110;
 
         /// <summary>
         /// Discover
         /// </summary>
-        public const int Discover = 111;
+        private  readonly  int Discover = 111;
 
         /// <summary>
         /// BrasilCard
         /// </summary>
-        public const int BrasilCard = 112;
+        public readonly  int BrasilCard = 112;
 
         /// <summary>
         /// FORTBRASIL
         /// </summary>
-        public const int FortBrasil = 113;
+        public readonly  int FortBrasil = 113;
 
         /// <summary>
         /// CARDBAN
         /// </summary>
-        public const int CardBan = 114;
-
+        private  readonly  int CardBan = 114;
         /// <summary>
         /// VALECARD
         /// </summary>
-        public const int ValeCard = 115;
+        private  readonly  int ValeCard = 115;
 
         /// <summary>
         /// Cabal
         /// </summary>
-        public const int Cabal = 116;
+        private  readonly  int Cabal = 116;
 
         /// <summary>
         /// Mais!
         /// </summary>
-        public const int Mais = 117;
+        public readonly  int Mais = 117;
 
         /// <summary>
         /// Avista
         /// </summary>
-        public const int Avista = 118;
+        public readonly  int Avista = 118;
 
         /// <summary>
         /// GrandCard
         /// </summary>
-        public const int GrandCard = 119;
+        public readonly  int GrandCard = 119;
 
         /// <summary>
         /// Bradesco boleto
         /// </summary>
-        public const int BradescoBoleto = 201;
+        public readonly  int BradescoBoleto = 201;
 
         /// <summary>
         /// Santander boleto
         /// </summary>
-        public const int SantanderBoleto = 202;
+        private  readonly  int SantanderBoleto = 202;
 
         /// <summary>
         /// Bradesco online transfer
         /// </summary>
-        public const int BradescoOnlineTransfer = 301;
+        private  readonly  int BradescoOnlineTransfer = 301;
 
         /// <summary>
         /// Itau online transfer
         /// </summary>
-        public const int ItauOnlineTransfer = 302;
+        private  readonly  int ItauOnlineTransfer = 302;
 
         /// <summary>
         /// Unibanco online transfer
         /// </summary>
-        public const int UnibancoOnlineTransfer = 303;
+        private  readonly  int UnibancoOnlineTransfer = 303;
 
         /// <summary>
         /// Banco do Brasil online transfer
         /// </summary>
-        public const int BancoBrasilOnlineTransfer = 304;
+        private  readonly  int BancoBrasilOnlineTransfer = 304;
 
         /// <summary>
         /// Banco Real online transfer
         /// </summary>
-        public const int RealOnlineTransfer = 305;
+        private  readonly  int RealOnlineTransfer = 305;
         
         /// <summary>
         /// Banrisul online transfer
         /// </summary>
-        public const int BanrisulOnlineTransfer = 306;
+        private  readonly  int BanrisulOnlineTransfer = 306;
 
         /// <summary>
         /// HSBC online transfer
         /// </summary>
-        public const int HsbcOnlineTransfer = 307;
+        private  readonly  int HsbcOnlineTransfer = 307;
 
         /// <summary>
         /// PagSeguro account balance
         /// </summary>
-        public const int PagSeguroBalance = 401;
+        private  readonly  int PagSeguroBalance = 401;
 
         /// <summary>
         /// OiPaggo
         /// </summary>
-        public const int OiPaggo = 501;
+        private  readonly  int OiPaggo = 501;
 
         /// <summary>
         /// Banco do Brasil direct deposit
         /// </summary>
-        public const int BancoBrasilDirectDeposit = 701;
+        private  readonly  int BancoBrasilDirectDeposit = 701;
     }
 }
