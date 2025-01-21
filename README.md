@@ -5,7 +5,7 @@ Preâmbulo
 Este é um *fork* da biblioteca original, a qual foi descontinuada e teve seu pacote NuGet correspondente removido do repositório público nuget.org.
 
 Este *fork* não possui nenhum recurso e/ou funcionalidade diferente do que já existiu implementado na biblioteca original,
-e foi criado única e exclusivamente porque o repositório original foi aparentemente abandonado pelos seus mantenerodes originais
+e foi criado única e exclusivamente porque o repositório original foi aparentemente abandonado pelos seus mantenedores originais
 (UOL e equipe PagSeguro). Com isso, a biblioteca original deixou de ser atualizada para suportar as versões mais recentes do .NET Framework (4.8),
 e também apresentava erros de sintaxe que impediam a compilação adequada do projeto.
 
@@ -82,7 +82,7 @@ As chamadas via API exigem que você passe uma instância da classe AccountCrede
 Dúvidas?
 ----------
 ---
-Caso tenha dúvidas ou precise de suporte, abra um chamado conosco [link].
+Caso tenha dúvidas ou precise de suporte, abra um chamado conosco [Suporte PagBank].
 
 
 Changelog
@@ -197,7 +197,7 @@ Achou e corrigiu um bug ou tem alguma feature em mente e deseja contribuir?
   [Consultar Transações por Código]: https://devs.pagseguro.uol.com.br/docs/pagamento-recorrente-consulta-pelo-codigo-de-adesao
   [Consultar Transações por Intervalo de Datas]: https://devs.pagseguro.uol.com.br/docs/pagamento-recorrente-consulta-por-intervalo-de-datas
   [Receber Notificações]: https://devs.pagseguro.uol.com.br/docs/checkout-web-notificacoes
-  [link]: https://app.pipefy.com/public/form/k8aKYyJE/?_ga=2.175732066.1759255508.1544013668-532205691.1540442951
+  [Suporte PagBank]: https://app.pipefy.com/public/form/sBlh9Nq6
   [.NET Framework]: http://www.microsoft.com/net
   [GitHub]: https://github.com/pagseguro/pagseguro-sdk-dotnet
   [documentação oficial]: https://pagseguro.uol.com.br/v2/guia-de-integracao/documentacao-da-biblioteca-pagseguro-netframework.html
