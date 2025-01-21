@@ -65,8 +65,6 @@ namespace Uol.PagSeguro.Domain
         /// </summary>
         public const string Mastercard = "MASTERCARD";
 
-        // TO-DO: convert all the static properties below this line into constants
-
         /// <summary>
         /// Amex brand
         /// </summary>

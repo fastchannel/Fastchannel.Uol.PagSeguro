@@ -1,12 +1,50 @@
+Preâmbulo
+---------
+---
+
+Este é um *fork* da biblioteca original, a qual foi descontinuada e teve seu pacote NuGet correspondente removido do repositório público nuget.org.
+
+Este *fork* não possui nenhum recurso e/ou funcionalidade diferente do que já existiu implementado na biblioteca original,
+e foi criado única e exclusivamente porque o repositório original foi aparentemente abandonado pelos seus mantenerodes originais
+(UOL e equipe PagSeguro). Com isso, a biblioteca original deixou de ser atualizada para suportar as versões mais recentes do .NET Framework (4.8),
+e também apresentava erros de sintaxe que impediam a compilação adequada do projeto.
+
+Para resolver tais problemas presentes no repositório original, e também para ter uma base de código sendo devidamente mantida,
+criamos este *fork*, o qual tem como intuito manter a biblioteca atualizada e funcional para as versões mais recentes do .NET Framework.
+
+Disponibilizamos um pacote NuGet com a última versão disponível, a qual pode ser encontrada na lista de *releases* desse repositório.
+Os pacotes NuGet também encontram-se disponíveis para consumo através do *feed* privado da **Fastchannel** aqui no GitHub:
+https://github.com/orgs/fastchannel/packages
+
+Apesar de ser um *feed* privado, o *feed* mencionado acima pode ser consumido por qualquer membro da comunidade GitHub, sem restrições.
+Basta criar seu *token* de acesso pessoal (clássico) e configurar o Visual Studio para consumir o *feed* privado da **Fastchannel**:
+https://github.com/settings/tokens
+
+Também aceitamos *issues* e *pull requests* para correção de bugs e/ou implementação de novas funcionalidades.
+
+Por fim, caso a UOL e a equipe PagSeguro estejam interessadas em reassumir o desenvolvimento do repositório original,
+poderemos realizar um *pull request* de volta ao repositório original, sem problemas ou dificuldades.
+
+**NOTA:** A **Fastchannel** consome ativamente este pacote em seus projetos e atesta que o mesmo encontra-se funcional e estável.
+
+https://www.fastchannel.com
+
+==========================================
+
 `DEPRECATED` # Biblioteca de integração PagSeguro em .NET
 
-> **_NOTE:_** **Esse SDK foi descontinuado** <br> Estamos trabalhando em soluções e facilidades para evoluirmos a Plataforma de API’s do PagSeguro. Conheça nossa Plataforma de API’s acessando https://dev.pagseguro.uol.com.br/reference/pagseguro-reference-intro
+> **NOTA: Esse SDK foi descontinuado pela UOL e pela equipe PagSeguro**  
+Estamos trabalhando em soluções e facilidades para evoluirmos a Plataforma de API’s do PagSeguro.  
+Conheça nossa Plataforma de API’s acessando:  
+https://dev.pagseguro.uol.com.br/reference/pagseguro-reference-intro
 
 ---
 Descrição
 ---------
 ---
-A biblioteca PagSeguro em .NET é um conjunto de classes de domínio que facilitam, para o desenvolvedor .NET, a utilização das funcionalidades que o PagSeguro oferece na forma de APIs. Com a biblioteca instalada e configurada, você pode facilmente integrar funcionalidades como:
+A biblioteca PagSeguro em .NET é um conjunto de classes de domínio que facilitam,
+para o desenvolvedor .NET, a utilização das funcionalidades que o PagSeguro oferece na forma de APIs.
+Com a biblioteca instalada e configurada, você pode facilmente integrar funcionalidades como:
 
 
  - [Criar Requisições de Pagamentos]
@@ -21,7 +59,7 @@ A biblioteca PagSeguro em .NET é um conjunto de classes de domínio que facilit
 Requisitos
 ----------
 ---
- - [.NET Framework] 4+
+ - [.NET Framework] 4.8+
 
 
 Instalação
@@ -50,6 +88,12 @@ Caso tenha dúvidas ou precise de suporte, abra um chamado conosco [link].
 Changelog
 ---------
 ---
+3.1.5
+
+- Atualização do Framework para 4.8
+- Correção de erros de sintaxe presentes no código-fonte do repositório original
+- Empacotamento do projeto e disponibilização do pacote NuGet
+
 3.0.0
 
 - Remoção de funcionalidade depreciada (checkout com cartão de crédito internacional)
