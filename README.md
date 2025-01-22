@@ -1,3 +1,11 @@
+Fastchannel.Uol.PagSeguro
+-------------------------
+---
+
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/fastchannel/Fastchannel.Uol.PagSeguro/publish-nuget-on-new-version-tags.yml?branch=main&event=push&style=plastic&logo=githubactions&logoColor=white&label=Latest%20Build)
+![GitHub Current Release](https://img.shields.io/github/v/release/fastchannel/Fastchannel.Uol.PagSeguro?sort=semver&display_name=release&style=plastic&logo=github&label=Current%20Release)
+![GitHub Repository Size](https://img.shields.io/github/repo-size/fastchannel/Fastchannel.Uol.PagSeguro?style=plastic&logo=github&label=Repo%20Size)
+
 Preâmbulo
 ---------
 ---
