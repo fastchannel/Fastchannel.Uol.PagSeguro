@@ -4,13 +4,13 @@
     <id>Fastchannel.Uol.PagSeguro</id>
     <version>$version$</version>
     <title>Fastchannel.Uol.PagSeguro</title>
-    <authors>UOL, Fastchannel</authors>
+    <authors>Fastchannel</authors>
     <license type="file">docs/LICENSE-2.0.txt</license>
     <readme>docs/README.md</readme>
-    <icon>images/uol.png</icon>
-    <iconUrl>https://avatars3.githubusercontent.com/u/123060</iconUrl>
-    <projectUrl>https://github.com/fastchannel/pagseguro-sdk-dotnet</projectUrl>
-    <repository type="git" url="https://github.com/fastchannel/pagseguro-sdk-dotnet.git" branch="master" />
+    <icon>images/fastchannel.png</icon>
+    <iconUrl>https://cdn.jsdelivr.net/gh/fastchannel/.github/images/logo-icon-128x128.png</iconUrl>
+    <projectUrl>https://github.com/fastchannel/Fastchannel.Uol.PagSeguro</projectUrl>
+    <repository type="git" url="https://github.com/fastchannel/Fastchannel.Uol.PagSeguro.git" branch="master" />
     <description>Fastchannel's fork of the PagSeguro SDK for .NET</description>
     <releaseNotes>
 		This package contains a few minor changes and hotfixes when compared to the original source code.
@@ -25,6 +25,6 @@
   <files>
 	  <file src="..\..\LICENSE-2.0.txt" target="docs/" />
 	  <file src="..\..\README.md" target="docs/" />
-	  <file src="..\..\uol.png" target="images/" />
+	  <file src="..\..\fastchannel.png" target="images/" />
   </files>
 </package>
